@@ -6,40 +6,39 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 
     <style>
-        /* 1. Estilos para que el visor ocupe toda la pantalla (100% de la ventana) */
+        /* 1. Estilos para que el visor ocupe toda la pantalla */
         model-viewer {
             width: 100vw;
             height: 100vh;
-            /* Esto oculta el botón AR por defecto */
-            --ar-button-display: none; 
         }
-        body { margin: 0; }
+        body { 
+            margin: 0; 
+            padding: 0;
+            overflow: hidden;
+        }
 
         /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Grande y visible) */
         #custom-ar-button {
-            /* Posicionamiento y Apariencia */
-            background-color: #007bff; /* Azul para destacar la acción */
-            color: white; /* Letra blanca */
-            font-size: 18px; /* Grande para el celular */
+            background-color: #28a745; /* Color verde para destacar la acción */
+            color: white;
+            font-size: 18px;
             font-weight: bold;
-            padding: 15px 30px; /* Relleno grande y fácil de tocar */
+            padding: 15px 30px;
             border: none;
-            border-radius: 10px; /* Bordes redondeados */
+            border-radius: 10px;
             cursor: pointer;
             
-            /* Centrado en la parte inferior de la pantalla */
+            /* Centrado y posición */
             position: absolute;
             bottom: 30px; 
             left: 50%;
-            transform: translateX(-50%); /* Centrado horizontal */
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra para resaltar */
-            z-index: 10; /* Asegura que esté por encima del visor */
-            
-            /* Animación simple al tocar */
+            transform: translateX(-50%);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 10; 
             transition: background-color 0.2s;
         }
         #custom-ar-button:active {
-            background-color: #0056b3;
+            background-color: #1e7e34;
         }
     </style>
 </head>
@@ -55,11 +54,10 @@
         touch-action="pan-y">
 
         <button slot="ar-button" id="custom-ar-button">
-            TOCA AQUÍ PARA INICIAR LA REALIDAD AUMENTADA
+            TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
         </button>
         
     </model-viewer>
 
 </body>
 </html>
-
