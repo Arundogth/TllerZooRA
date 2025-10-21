@@ -1,26 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Anatomía Zootecnia en RA</title>
+    <title>Taller RX: Visualización Anatómica</title>
+    
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
+
     <style>
-        /* Estilo para que el visor ocupe toda la pantalla del móvil */
+        /* 1. Estilos para que el visor ocupe toda la pantalla (100% de la ventana) */
         model-viewer {
             width: 100vw;
             height: 100vh;
+            /* Esto oculta el botón AR por defecto */
+            --ar-button-display: none; 
         }
         body { margin: 0; }
+
+        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Grande y visible) */
+        #custom-ar-button {
+            /* Posicionamiento y Apariencia */
+            background-color: #007bff; /* Azul para destacar la acción */
+            color: white; /* Letra blanca */
+            font-size: 18px; /* Grande para el celular */
+            font-weight: bold;
+            padding: 15px 30px; /* Relleno grande y fácil de tocar */
+            border: none;
+            border-radius: 10px; /* Bordes redondeados */
+            cursor: pointer;
+            
+            /* Centrado en la parte inferior de la pantalla */
+            position: absolute;
+            bottom: 30px; 
+            left: 50%;
+            transform: translateX(-50%); /* Centrado horizontal */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); /* Sombra para resaltar */
+            z-index: 10; /* Asegura que esté por encima del visor */
+            
+            /* Animación simple al tocar */
+            transition: background-color 0.2s;
+        }
+        #custom-ar-button:active {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
 
     <model-viewer
-        src="https://arundogth.github.io/TllerZooRA/lamb_in_carcass.glb"
-        alt="Modelo Anatomico"
+        src="https://arundogth.github.io/TllerZooRA/lamb_in_carcass.glb" 
+        alt="Modelo Anatómico para Zootecnia"
         ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
         touch-action="pan-y">
+
+        <button slot="ar-button" id="custom-ar-button">
+            TOCA AQUÍ PARA INICIAR LA REALIDAD AUMENTADA
+        </button>
+        
     </model-viewer>
 
 </body>
