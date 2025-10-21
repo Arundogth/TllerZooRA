@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Catálogo RX - Ciencias Pecuarias</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin: 0; padding: 20px; background-color: #f4f4f9; }
+        h1 { color: #007bff; margin-bottom: 20px; }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .model-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .model-card:hover {
+            background-color: #e9ecef;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Taller RX: Catálogo de Modelos Anatómicos</h1>
+    <p>Selecciona la estructura que deseas explorar en Realidad Aumentada (RA/RV).</p>
+
+    <div class="grid-container">
+        <a href="craneo_equino.html" class="model-card">
+            Cráneo Equino
+        </a>
+
+        <a href="corazon_bovino.html" class="model-card">
+            Corazón Bovino
+        </a>
+
+        <a href="sistema_digestivo.html" class="model-card">
+            Sistema Digestivo Porcino
+        </a>
+
+        <a href="modelo_4.html" class="model-card">
+            [Nombre de Modelo 4]
+        </a>
+
+        <a href="modelo_5.html" class="model-card">
+            [Nombre de Modelo 5]
+        </a>
+
+        <a href="modelo_6.html" class="model-card">
+            [Nombre de Modelo 6]
+        </a>
+    </div>
+
+</body>
+</html>
