@@ -6,20 +6,16 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 
     <style>
-        /* 1. Estilos para que el visor ocupe toda la pantalla */
+        /* [Se mantiene tu CSS para el visor y el botón personalizado] */
         model-viewer {
             width: 100vw;
             height: 100vh;
         }
-        body { 
-            margin: 0; 
-            padding: 0;
-            overflow: hidden;
-        }
+        body { margin: 0; padding: 0; overflow: hidden; }
 
-        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Grande y visible) */
+        /* Estilos del Botón AR Personalizado */
         #custom-ar-button {
-            background-color: #28a745; /* Color verde para destacar la acción */
+            background-color: #28a745; 
             color: white;
             font-size: 18px;
             font-weight: bold;
@@ -27,8 +23,6 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            
-            /* Centrado y posición */
             position: absolute;
             bottom: 30px; 
             left: 50%;
@@ -45,10 +39,9 @@
 <body>
 
     <model-viewer
-        src="https://arundogth.github.io/TllerZooRA/eb16.usdz" 
-        alt="Modelo Anatómico para Zootecnia"
+        src="https://arundogth.github.io/TllerZooRA/eb16.glb"  ios-src="https://arundogth.github.io/TllerZooRA/eb16.usdz" alt="Modelo Anatómico para Zootecnia"
         loading="eager"
-      autoplay
+        autoplay
         ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
