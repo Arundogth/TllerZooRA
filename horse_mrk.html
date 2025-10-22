@@ -21,16 +21,18 @@
 <body>
     
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; trackingMethod: best;'>
+<a-marker preset='hiro'> 
 
-        <a-marker preset='hiro'> 
+    <a-entity 
+        gltf-model="url(./carcass.glb)"
+        position="0 0.1 0"  
+        scale="0.5 0.5 0.5"  
+        animation-mixer="clip: *; autoplay: true">
+    </a-entity>
+    
+    <a-box position="0 0.1 0" rotation="0 45 0" color="#4CC3D9"></a-box>
 
-            <a-entity 
-                gltf-model="url(./horse_basemesh.glb)" 
-                position="0 0.1 0"  scale="0.5 0.5 0.5"  animation-mixer="clip: *; autoplay: true; repeat: Infinity">
-            </a-entity>
-
-        </a-marker>
-
+</a-marker>
         <a-entity camera></a-entity>
 
     </a-scene>
