@@ -29,12 +29,12 @@
             cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 
-            /* --- CORRECCIÓN CLAVE PARA EL CENTRADO (Elevado 15% del fondo) --- */
-            position: absolute;
-            bottom: 15%; /* Mueve el botón lejos de la barra de navegación del celular */
+            /* --- CORRECCIÓN CLAVE: ELEVACIÓN DEL BOTÓN --- */
+            position: absolute; /* Posicionado dentro del visor */
+            bottom: 15%; /* LO SUBE DESDE EL BORDE INFERIOR (15% del alto) */
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000; /* Asegura que esté por encima de todo */
+            z-index: 1000; /* Asegura que esté por encima de las barras nativas */
             transition: background-color 0.2s;
         }
         #custom-ar-button:active {
@@ -51,7 +51,8 @@
         
         alt="Modelo Anatómico para Zootecnia"
         loading="eager"
-        autoplay  ar
+        autoplay
+        ar
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
         touch-action="pan-y">
