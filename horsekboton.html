@@ -6,7 +6,7 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 
     <style>
-        /* Estilos generales */
+        /* 1. Estilos para que el visor ocupe toda la pantalla */
         model-viewer {
             width: 100vw;
             height: 100vh;
@@ -16,27 +16,36 @@
             padding: 0;
             overflow: hidden;
         }
-        
-        /* Opcional: Estilo nativo para hacerlo un poco más grande y visible */
-        model-viewer {
-            --ar-button-background-color: #007bff; /* Color azul */
-            --ar-button-border-radius: 10px;
-            --ar-button-font-size: 16px;
-            --ar-button-padding: 10px 20px;
+
+        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Posición y Color Azul) */
+        #custom-ar-button {
+            background-color: #007bff; /* ¡COLOR AZUL! */
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
+            /* --- CAMBIO CLAVE: ELEVACIÓN DEL BOTÓN --- */
+            position: absolute; 
+            bottom: 15%; /* Elevado 15% desde el borde inferior de la pantalla */
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10; /* Manteniendo el z-index original que te funcionó antes */
+            transition: background-color 0.2s;
+        }
+        #custom-ar-button:active {
+            background-color: #0056b3; /* Un azul más oscuro al presionar */
         }
     </style>
 </head>
 <body>
 
     <model-viewer
-        /* REPOSICIONAMIENTO DEL BOTÓN NATIVO MEDIANTE VARIABLES CSS INTERNAS */
-        style="
-            --ar-button-right: 50%;
-            --ar-button-bottom: 100px; /* ELEVADO A 100 PÍXELES DE LA BASE */
-            --ar-button-transform: translateX(-50%);
-        "
-
-        /* FUENTES Y FUNCIONALIDAD */
+        /* FUENTES: GLB para universal, USDZ para animación iOS */
         src="https://arundogth.github.io/TllerZooRA/horse_skeleton.glb"
         ios-src="https://arundogth.github.io/TllerZooRA/horse_skeleton.usdz" 
         
@@ -45,11 +54,14 @@
         autoplay
         ar
         ar-modes="webxr scene-viewer quick-look"
-        ar-placement="floor"
         camera-controls
         touch-action="pan-y">
+
+        <button slot="ar-button" id="custom-ar-button">
+            TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
+        </button>
         
-        </model-viewer>
+    </model-viewer>
 
 </body>
 </html>
