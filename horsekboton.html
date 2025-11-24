@@ -6,7 +6,7 @@
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
 
     <style>
-        /* 1. Estilos para que el visor ocupe toda la pantalla */
+        /* Estilos generales */
         model-viewer {
             width: 100vw;
             height: 100vh;
@@ -16,35 +16,27 @@
             padding: 0;
             overflow: hidden;
         }
-
-        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Mayor Estabilidad) */
-        #custom-ar-button {
-            background-color: #28a745; 
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
-
-            /* --- CORRECCIÓN FINAL: POSICIONAMIENTO MÁS ROBUSTO --- */
-            position: fixed; /* Anclado a la ventana de visualización, más estable que 'absolute' */
-            bottom: 80px; /* Posicionado 80px desde el borde inferior (área segura) */
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 9999; /* Z-index muy alto */
-            transition: background-color 0.2s;
-        }
-        #custom-ar-button:active {
-            background-color: #1e7e34;
+        
+        /* Opcional: Estilo nativo para hacerlo un poco más grande y visible */
+        model-viewer {
+            --ar-button-background-color: #007bff; /* Color azul */
+            --ar-button-border-radius: 10px;
+            --ar-button-font-size: 16px;
+            --ar-button-padding: 10px 20px;
         }
     </style>
 </head>
 <body>
 
     <model-viewer
-        /* Reemplaza los nombres de archivos con las rutas exactas de tu repositorio */
+        /* REPOSICIONAMIENTO DEL BOTÓN NATIVO MEDIANTE VARIABLES CSS INTERNAS */
+        style="
+            --ar-button-right: 50%;
+            --ar-button-bottom: 100px; /* ELEVADO A 100 PÍXELES DE LA BASE */
+            --ar-button-transform: translateX(-50%);
+        "
+
+        /* FUENTES Y FUNCIONALIDAD */
         src="https://arundogth.github.io/TllerZooRA/horse_skeleton.glb"
         ios-src="https://arundogth.github.io/TllerZooRA/horse_skeleton.usdz" 
         
@@ -52,16 +44,12 @@
         loading="eager"
         autoplay
         ar
-        ar-placement="floor"
         ar-modes="webxr scene-viewer quick-look"
+        ar-placement="floor"
         camera-controls
         touch-action="pan-y">
-
-        <button slot="ar-button" id="custom-ar-button">
-            TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
-        </button>
         
-    </model-viewer>
+        </model-viewer>
 
 </body>
 </html>
