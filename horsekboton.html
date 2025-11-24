@@ -17,7 +17,7 @@
             overflow: hidden;
         }
 
-        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Grande y visible) */
+        /* 2. ESTILOS DEL BOTÓN AR PERSONALIZADO (Mayor Estabilidad) */
         #custom-ar-button {
             background-color: #28a745; 
             color: white;
@@ -26,15 +26,14 @@
             padding: 15px 30px;
             border: none;
             border-radius: 10px;
-            cursor: pointer;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 
-            /* --- CORRECCIÓN CLAVE: ELEVACIÓN DEL BOTÓN --- */
-            position: absolute; /* Posicionado dentro del visor */
-            bottom: 15%; /* LO SUBE DESDE EL BORDE INFERIOR (15% del alto) */
+            /* --- CORRECCIÓN FINAL: POSICIONAMIENTO MÁS ROBUSTO --- */
+            position: fixed; /* Anclado a la ventana de visualización, más estable que 'absolute' */
+            bottom: 80px; /* Posicionado 80px desde el borde inferior (área segura) */
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000; /* Asegura que esté por encima de las barras nativas */
+            z-index: 9999; /* Z-index muy alto */
             transition: background-color 0.2s;
         }
         #custom-ar-button:active {
@@ -45,7 +44,7 @@
 <body>
 
     <model-viewer
-        /* FUENTES: GLB para universal, USDZ para animación iOS */
+        /* Reemplaza los nombres de archivos con las rutas exactas de tu repositorio */
         src="https://arundogth.github.io/TllerZooRA/horse_skeleton.glb"
         ios-src="https://arundogth.github.io/TllerZooRA/horse_skeleton.usdz" 
         
@@ -53,6 +52,7 @@
         loading="eager"
         autoplay
         ar
+        ar-placement="floor"
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
         touch-action="pan-y">
