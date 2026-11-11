@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taller RX: Visualización Anatómica</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/1.12.0/model-viewer.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+            height: 100dvh;
+            display: block;
+        }
+
+        /* Botón de realidad aumentada */
+        #custom-ar-button {
+            position: fixed;
+            left: 50%;
+            bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+            transform: translateX(-50%);
+
+            width: calc(100% - 28px);
+            max-width: 420px;
+            min-height: 62px;
+
+            padding: 14px 18px;
+
+            background-color: #28a745;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1.3;
+            text-align: center;
+
+            border: none;
+            border-radius: 12px;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+
+            z-index: 1000;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        #custom-ar-button:active {
+            background-color: #1e7e34;
+            transform: translateX(-50%) scale(0.97);
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <model-viewer
+        src="https://arundogth.github.io/TllerZooRA/cow2k.glb"
+        alt="Modelo Anatómico para Zootecnia"
+        loading="eager"
+        ar
+        ar-modes="webxr scene-viewer quick-look"
+        camera-controls
+        touch-action="pan-y">
+
+        <button slot="ar-button" id="custom-ar-button">
+            TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
+        </button>
+
+    </model-viewer>
+
+</body>
+</html>
