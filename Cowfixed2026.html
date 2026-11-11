@@ -1,8 +1,9 @@
 
 <body>
 
+<div class="contenedor">
+
     <model-viewer
-        id="visor"
         src="https://arundogth.github.io/TllerZooRA/cow2k.glb"
         alt="Modelo Anatómico para Zootecnia"
         loading="eager"
@@ -10,23 +11,13 @@
         ar-modes="webxr scene-viewer quick-look"
         camera-controls
         touch-action="pan-y">
+
+        <button slot="ar-button" id="custom-ar-button">
+            TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
+        </button>
+
     </model-viewer>
 
-    <button id="custom-ar-button">
-        TOCA AQUÍ PARA INICIAR REALIDAD AUMENTADA
-    </button>
-
-    <script>
-        const visor = document.querySelector("#visor");
-        const boton = document.querySelector("#custom-ar-button");
-
-        boton.addEventListener("click", () => {
-            if (visor.canActivateAR) {
-                visor.activateAR();
-            } else {
-                alert("Este dispositivo no tiene disponible la función de realidad aumentada.");
-            }
-        });
-    </script>
+</div>
 
 </body>
